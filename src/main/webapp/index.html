@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartwise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        main {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="file"] {
+            margin-bottom: 1rem;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Cartwise!</h1>
+    </header>
+
+    <main>
+        <section>
+            <form action="myservlet" method="post" enctype="multipart/form-data">
+                <label for="csvFile">Upload CSV File:</label>
+                <input type="file" id="csvFile" name="csvFile" accept=".csv">
+                <input type="submit" value="Upload CSV">
+            </form>
+        </section>
+    </main>
+</body>
+</html>
