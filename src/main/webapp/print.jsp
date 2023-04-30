@@ -19,13 +19,27 @@
     </style>
 </head>
 <body>
+
     <header>
         <h1>CSV Data</h1>
+        <% 
+        List<String[]> errorArray = (List<String[]>) request.getSession().getAttribute("errorArray");
+        for (String[] errorRow : errorArray) {
+            for (String error : errorRow) {
+                if (error != null) {
+        %>
+                    <p style="color: red;"><%= error %></p>
+        <% 
+                }
+            }
+        }
+        %>
     </header>
 
     <main>
         <section>
             <table id="csvTable">
+
                 <thead>
                     <tr>
                         <% 
