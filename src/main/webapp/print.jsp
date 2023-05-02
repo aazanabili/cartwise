@@ -31,13 +31,21 @@
                     <p style="color: red;"><%= error %></p>
         <% 
                 }
+                
             }
         }
+        %>
+        <p style="color: blue;"><%= "kein fehler mher" %></p>
+ <% 
+
         %>
     </header>
 
     <main>
         <section>
+        <!--
+
+
             <table id="csvTable">
 
                 <thead>
@@ -60,6 +68,7 @@
                     <% } %>
                 </tbody>
             </table>
+            //-->
             <button onclick="printCSV()">Print CSV</button>
         </section>
     </main>

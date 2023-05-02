@@ -46,7 +46,7 @@ public class MyServlet extends HttpServlet {
         
         
         if (!"w".equals(row[0]) && !"m".equals(row[0]) || row[0] == null) {
-            rowValue[0] = "Invalid value in the Geschlecht Row "+row_num +":"+ row[0];
+            rowValue[0] = "Invalid value in the Geschlecht Row "+row_num+":"+ row[0];
         } else {
             rowValue[0] = null;
         }
@@ -54,7 +54,7 @@ public class MyServlet extends HttpServlet {
         
         
         if (row[1] == null) {
-            rowValue[1] = "Invalid value in the Alter Row: " + row[1];
+            rowValue[1] = "Invalid value in the Alter Row: " +row_num+":"+ row[1];
         } else {
             rowValue[1] = null;
         }
@@ -62,7 +62,7 @@ public class MyServlet extends HttpServlet {
         
         
         if (!"ja".equals(row[2]) && !"nein".equals(row[2]) || row[2] == null) {
-            rowValue[2] = "Invalid value in the Kinder Row: " + row[2];
+            rowValue[2] = "Invalid value in the Kinder Row: " +row_num+":"+ row[2];
         } else {
             rowValue[2] = null;
         }
@@ -71,7 +71,7 @@ public class MyServlet extends HttpServlet {
         
         
         if (!"ledig".equals(row[3]) && !"Partnerschaft".equals(row[3]) || row[3] == null) {
-            rowValue[3] = "Invalid value in the Familienstand Row: " + row[3];
+            rowValue[3] = "Invalid value in the Familienstand Row: " +row_num+":"+ row[3];
         } else {
             rowValue[3] = null;
         }
@@ -79,7 +79,7 @@ public class MyServlet extends HttpServlet {
         
         
         if (!"ja".equals(row[4]) && !"nein".equals(row[4]) || row[4] == null) {
-            rowValue[4] = "Invalid value in the Berufstaetig Row: " + row[4];
+            rowValue[4] = "Invalid value in the Berufstaetig Row: " +row_num+":"+ row[4];
         } else {
             rowValue[4] = null;
         }
@@ -87,7 +87,7 @@ public class MyServlet extends HttpServlet {
         
         
 	    if (!"Freitag".equals(row[5]) && !"Samstag".equals(row[5])&& !"Dienstag".equals(row[5])&& !"Montag".equals(row[5])&& !"Mittwoch".equals(row[5])&& !"Sonntag".equals(row[5])&& !"Donnerstag".equals(row[5]) || row[5] == null) {
-	          rowValue[5] = "Invalid value in the Einkaufstag Row: " + row[5];
+	          rowValue[5] = "Invalid value in the Einkaufstag Row: " +row_num+":"+ row[5];
 	    } else {
 	          rowValue[5] = null;
 	    }
@@ -96,7 +96,7 @@ public class MyServlet extends HttpServlet {
 	    
 	    
         if (row[6] == null) {
-            rowValue[6] = "Invalid value in the Einkaufsuhrzeit Row: " + row[6];
+            rowValue[6] = "Invalid value in the Einkaufsuhrzeit Row: " +row_num+":"+ row[6];
         } else {
             rowValue[6] = null;
         }
@@ -105,7 +105,7 @@ public class MyServlet extends HttpServlet {
         
         
         if (row[7] == null) {
-            rowValue[7] = "Invalid value in the Wohnort Row: " + row[7];
+            rowValue[7] = "Invalid value in the Wohnort Row: " +row_num+":"+ row[7];
         } else {
             rowValue[7] = null;
         }
@@ -113,7 +113,7 @@ public class MyServlet extends HttpServlet {
         
         
         if (row[8] == null) {
-            rowValue[8] = "Invalid value in the Haushaltsnettoeinkommen Row: " + row[8];
+            rowValue[8] = "Invalid value in the Haushaltsnettoeinkommen Row: " +row_num+":"+ row[8];
         } else {
             rowValue[8] = null;
         }
@@ -125,12 +125,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue9 = Integer.parseInt(row[9]);
 		    if (rowValue9 < 0) {
-		        rowValue[9] = "Invalid value in the Einkaufssumme Row: " + row[9];
+		        rowValue[9] = "Invalid value in the Einkaufssumme Row: " +row_num+":"+ row[9];
 		    } else {
 		        rowValue[9] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[9] = "Invalid value in the Einkaufssumme Row: " + row[9];
+		    rowValue[9] = "Invalid value in the Einkaufssumme Row: " +row_num+":"+ row[9];
 		}
 
 	   
@@ -139,12 +139,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue10 = Integer.parseInt(row[10]);
 		    if (rowValue10 < 0) {
-		        rowValue[10] = "Invalid value in the Fertiggerichte Row: " + row[10];
+		        rowValue[10] = "Invalid value in the Fertiggerichte Row: " +row_num+":"+ row[10];
 		    } else {
 		        rowValue[10] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[10] = "Invalid value in the Fertiggerichte Row: " + row[10];
+		    rowValue[10] = "Invalid value in the Fertiggerichte Row: " +row_num+":"+ row[10];
 		}
 	   
 	   
@@ -153,12 +153,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue11 = Integer.parseInt(row[11]);
 		    if (rowValue11 < 0) {
-		        rowValue[11] = "Invalid value in the Tiefkuehlware Row: " + row[11];
+		        rowValue[11] = "Invalid value in the Tiefkuehlware Row: " +row_num+":"+ row[11];
 		    } else {
 		        rowValue[11] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[11] = "Invalid value in the Tiefkuehlware Row: " + row[11];
+		    rowValue[11] = "Invalid value in the Tiefkuehlware Row: " +row_num+":"+ row[11];
 		}
 	   
 	   
@@ -168,12 +168,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue12 = Integer.parseInt(row[12]);
 		    if (rowValue12 < 0) {
-		        rowValue[12] = "Invalid value in the Milchprodukte Row: " + row[12];
+		        rowValue[12] = "Invalid value in the Milchprodukte Row: " +row_num+":"+ row[12];
 		    } else {
 		        rowValue[12] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[12] = "Invalid value in the Milchprodukte Row: " + row[12];
+		    rowValue[12] = "Invalid value in the Milchprodukte Row: " +row_num+":"+ row[12];
 		}
 	   
 	   
@@ -183,12 +183,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue13 = Integer.parseInt(row[13]);
 		    if (rowValue13 < 0) {
-		        rowValue[13] = "Invalid value in the Backwaren Row: " + row[13];
+		        rowValue[13] = "Invalid value in the Backwaren Row: " +row_num+":"+ row[13];
 		    } else {
 		        rowValue[13] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[13] = "Invalid value in the Backwaren Row: " + row[13];
+		    rowValue[13] = "Invalid value in the Backwaren Row: " +row_num+":"+ row[13];
 		}
 	   
 	   
@@ -198,12 +198,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue14 = Integer.parseInt(row[14]);
 		    if (rowValue14 < 0) {
-		        rowValue[14] = "Invalid value in the Obst/Gemuese Row: " + row[14];
+		        rowValue[14] = "Invalid value in the Obst/Gemuese Row: " +row_num+":"+ row[14];
 		    } else {
 		        rowValue[14] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[14] = "Invalid value in the Obst/Gemuese Row: " + row[14];
+		    rowValue[14] = "Invalid value in the Obst/Gemuese Row: " +row_num+":"+ row[14];
 		}
 	   
 	   
@@ -213,12 +213,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue15 = Integer.parseInt(row[15]);
 		    if (rowValue15 < 0) {
-		        rowValue[15] = "Invalid value in the Spirituosen Row: " + row[15];
+		        rowValue[15] = "Invalid value in the Spirituosen Row: " +row_num+":"+ row[15];
 		    } else {
 		        rowValue[15] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[15] = "Invalid value in the Spirituosen Row: " + row[15];
+		    rowValue[15] = "Invalid value in the Spirituosen Row: " +row_num+":"+ row[15];
 		}
 	   
 	   
@@ -228,12 +228,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue16 = Integer.parseInt(row[16]);
 		    if (rowValue16 < 0) {
-		        rowValue[16] = "Invalid value in the Tiernahrung Row: " + row[16];
+		        rowValue[16] = "Invalid value in the Tiernahrung Row: " +row_num+":"+ row[16];
 		    } else {
 		        rowValue[16] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[16] = "Invalid value in the Tiernahrung Row: " + row[16];
+		    rowValue[16] = "Invalid value in the Tiernahrung Row: " +row_num+":"+ row[16];
 		}
 	   
 	   
@@ -243,12 +243,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue17 = Integer.parseInt(row[17]);
 		    if (rowValue17 < 0) {
-		        rowValue[17] = "Invalid value in the Bier Row: " + row[17];
+		        rowValue[17] = "Invalid value in the Bier Row: " +row_num+":"+ row[17];
 		    } else {
 		        rowValue[17] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[17] = "Invalid value in the Bier Row: " + row[17];
+		    rowValue[17] = "Invalid value in the Bier Row: " +row_num+":"+ row[17];
 		}
 	   
 	   
@@ -261,12 +261,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue18 = Integer.parseInt(row[18]);
 		    if (rowValue18 < 0) {
-		        rowValue[18] = "Invalid value in the Frischfleisch Row: " + row[18];
+		        rowValue[18] = "Invalid value in the Frischfleisch Row: " +row_num+":"+ row[18];
 		    } else {
 		        rowValue[18] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[18] = "Invalid value in the Frischfleisch Row: " + row[18];
+		    rowValue[18] = "Invalid value in the Frischfleisch Row: " +row_num+":"+ row[18];
 		}
 	   
 	   
@@ -278,12 +278,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue19 = Integer.parseInt(row[19]);
 		    if (rowValue19 < 0) {
-		        rowValue[19] = "Invalid value in the Drogerieartikel Row: " + row[19];
+		        rowValue[19] = "Invalid value in the Drogerieartikel Row: " +row_num+":"+ row[19];
 		    } else {
 		        rowValue[19] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[19] = "Invalid value in the Drogerieartikel Row: " + row[19];
+		    rowValue[19] = "Invalid value in the Drogerieartikel Row: " +row_num+":"+ row[19];
 		}
 	   
 	   
@@ -296,12 +296,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue20 = Integer.parseInt(row[20]);
 		    if (rowValue20 < 0) {
-		        rowValue[20] = "Invalid value in the Konserven Row: " + row[20];
+		        rowValue[20] = "Invalid value in the Konserven Row: " +row_num+":"+ row[20];
 		    } else {
 		        rowValue[20] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[20] = "Invalid value in the Konserven Row: " + row[20];
+		    rowValue[20] = "Invalid value in the Konserven Row: " +row_num+":"+ row[20];
 		}
 	   
 	   
@@ -314,12 +314,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue21 = Integer.parseInt(row[21]);
 		    if (rowValue21 < 0) {
-		        rowValue[21] = "Invalid value in the Kaffee/Tee Row: " + row[21];
+		        rowValue[21] = "Invalid value in the Kaffee/Tee Row: " +row_num+":"+ row[21];
 		    } else {
 		        rowValue[21] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[21] = "Invalid value in the Kaffee/Tee Row: " + row[21];
+		    rowValue[21] = "Invalid value in the Kaffee/Tee Row: " +row_num+":"+ row[21];
 		}
 	   
 	   
@@ -332,12 +332,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue22 = Integer.parseInt(row[22]);
 		    if (rowValue22 < 0) {
-		        rowValue[22] = "Invalid value in the Suessigkeiten Row: " + row[22];
+		        rowValue[22] = "Invalid value in the Suessigkeiten Row: " +row_num+":"+ row[22];
 		    } else {
 		        rowValue[22] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[22] = "Invalid value in the Suessigkeiten Row: " + row[22];
+		    rowValue[22] = "Invalid value in the Suessigkeiten Row: " +row_num+":"+ row[22];
 		}
 	   
 	   
@@ -350,12 +350,12 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue23 = Integer.parseInt(row[23]);
 		    if (rowValue23 < 0) {
-		        rowValue[23] = "Invalid value in the Wurstwaren Row: " + row[23];
+		        rowValue[23] = "Invalid value in the Wurstwaren Row: " +row_num+":"+ row[23];
 		    } else {
 		        rowValue[23] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[23] = "Invalid value in the Wurstwaren Row: " + row[23];
+		    rowValue[23] = "Invalid value in the Wurstwaren Row: " +row_num+":"+ row[23];
 		}
 	   
 	   
@@ -368,16 +368,15 @@ public class MyServlet extends HttpServlet {
 	   try {
 		    int rowValue24 = Integer.parseInt(row[24]);
 		    if (rowValue24 < 0) {
-		        rowValue[24] = "Invalid value in the Schreibwaren Row: " + row[24];
+		        rowValue[24] = "Invalid value in the Schreibwaren Row: " +row_num+":"+ row[24];
 		    } else {
 		        rowValue[24] = null;
 		    }
 		} catch (NumberFormatException e) {
-		    rowValue[24] = "Invalid value in the Schreibwaren Row: " + row[24];
+		    rowValue[24] = "Invalid value in the Schreibwaren Row: " +row_num+":"+ row[24];
 		}
 	   
 	   
-  
 
         return rowValue;
     }
