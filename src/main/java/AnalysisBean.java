@@ -24,13 +24,28 @@ public class AnalysisBean implements Serializable {
 
     private Analysis analysis;
     private BarChartModel bestDayChart;
+    private int numCluster = 5;
+    private List<Customer> customerCluster;
 
     public BarChartModel getBestDayChart() {
         return this.bestDayChart;
     }
-
     public void setBestDayChart(BarChartModel bestDayChart) {
         this.bestDayChart = bestDayChart;
+    }
+
+    public int getNumCluster() {
+        return numCluster;
+    }
+    public void setNumCluster(int numCluster) {
+        this.numCluster = numCluster;
+    }
+
+    public List<Customer> getCustomerCluster() {
+        return customerCluster;
+    }
+    public void setCustomerCluster(List<Customer> customerCluster) {
+        this.customerCluster = customerCluster;
     }
 
 
@@ -47,6 +62,7 @@ public class AnalysisBean implements Serializable {
         }
 
         createBestDayModel();
+        createCustomerCluster();
     }
 
     private void createBestDayModel() {
@@ -103,5 +119,21 @@ public class AnalysisBean implements Serializable {
         dayOptions.setLegend(dayLegend);
 
         bestDayChart.setOptions(dayOptions);
+    }
+
+    public void createCustomerCluster() {
+        try {
+            this.customerCluster = analysis.getCustomerCluster(numCluster);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateCustomerCluster() {
+        try {
+            this.customerCluster = analysis.getCustomerCluster(numCluster);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

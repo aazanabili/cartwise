@@ -1,3 +1,4 @@
+import weka.clusterers.SimpleKMeans;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.CSVLoader;
@@ -60,5 +61,28 @@ public class Analysis {
         list.add(saturday);
 
         return list;
+    }
+
+    public List<Customer> getCustomerCluster(int number) throws Exception {
+        String[] result;
+        Instances customer = new Instances(data);
+        SimpleKMeans model = new SimpleKMeans();
+        model.setNumClusters(number);
+
+        for (int i = 0; i < 16; i++) customer.deleteAttributeAt(10);
+
+        model.buildClusterer(customer);
+
+        result = model.getClusterCentroids().toString().split("@data\n");
+        result = result[1].split("\n");
+
+
+        List<Customer> customers = new ArrayList<>();
+
+        for (int i = 0; i < number; i++) {
+            customers.add(new Customer(result[i].split(",")));
+        }
+
+        return customers;
     }
 }
