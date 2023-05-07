@@ -23,6 +23,7 @@ import java.util.Scanner;
 @Named
 @ViewScoped
 public class AnalysisBean implements Serializable {
+    static final long serialVersionUID = 42L;
 
     private Analysis analysis;
     private BarChartModel bestDayChart;
