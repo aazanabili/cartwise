@@ -1,3 +1,4 @@
+import org.primefaces.event.RowEditEvent;
 import org.primefaces.model.charts.ChartData;
 import org.primefaces.model.charts.axes.cartesian.CartesianScales;
 import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearAxes;
@@ -10,13 +11,14 @@ import org.primefaces.model.charts.optionconfig.legend.LegendLabel;
 import org.primefaces.model.charts.optionconfig.title.Title;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import java.io.File;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @Named
 @ViewScoped
@@ -26,6 +28,9 @@ public class AnalysisBean implements Serializable {
     private BarChartModel bestDayChart;
     private int numCluster = 5;
     private List<Customer> customerCluster;
+    private List<Marketing> marketing;
+    private String marketingInput;
+    private Marketing selectedRow;
 
     public BarChartModel getBestDayChart() {
         return this.bestDayChart;
@@ -48,6 +53,15 @@ public class AnalysisBean implements Serializable {
         this.customerCluster = customerCluster;
     }
 
+    public List<Marketing> getMarketing() { return marketing; }
+    public void setMarketing(List<Marketing> marketing) { this.marketing = marketing; }
+
+    public String getMarketingInput() { return marketingInput; }
+    public void setMarketingInput(String marketingInput) { this.marketingInput = marketingInput; }
+
+    public Marketing getSelectedRow() { return selectedRow; }
+    public void setSelectedRow(Marketing selectedRow) { this.selectedRow = selectedRow; }
+
 
     @PostConstruct
     public void init() {
@@ -61,6 +75,7 @@ public class AnalysisBean implements Serializable {
             e.printStackTrace();
         }
 
+        loadMarketing();
         createBestDayModel();
         createCustomerCluster();
     }
@@ -135,5 +150,88 @@ public class AnalysisBean implements Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void loadMarketing() {
+        marketing = new ArrayList<>();
+
+        String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("") + "marketing";
+        File saveDir = new File(path);
+
+        if (!saveDir.exists()) saveDir.mkdir();
+        List<String> results = new ArrayList<>();
+
+        File f = new File(saveDir + File.separator + "marketing.csv");
+
+        try {
+            Scanner rowScanner = new Scanner(f);
+
+            while (rowScanner.hasNextLine()) {
+                rowScanner.useDelimiter(",");
+                results.add(rowScanner.next());
+            }
+
+            int i = 0;
+            for (String str : results) {
+                marketing.add(new Marketing(i, str));
+                i++;
+            }
+        } catch ( FileNotFoundException e ) {
+            // do nothing
+        }
+    }
+
+    public void saveMarketing() {
+        String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("") + "marketing";
+        File saveDir = new File(path);
+
+        if (!saveDir.exists()) saveDir.mkdir();
+
+        File f = new File(saveDir + File.separator + "marketing.csv");
+        f.delete();
+
+        try {
+            FileWriter fw = new FileWriter(f);
+
+            for (int i = 0; i < marketing.size() - 1; i++) {
+                fw.write(marketing.get(i).getName() + ",");
+            }
+
+            fw.write(marketing.get(marketing.size() - 1).getName());
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onRowEdit(RowEditEvent<Marketing> event) {
+        FacesMessage msg = new FacesMessage("Edited row", String.valueOf(event.getObject().getId()));
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void onRowCancel(RowEditEvent<Marketing> event) {
+        FacesMessage msg = new FacesMessage("Cancelled edit", String.valueOf(event.getObject().getId()));
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void onAddNew() {
+        if (!(marketingInput.trim().length() == 0)) {
+            marketing.add(new Marketing(marketing.size() + 1, marketingInput));
+            saveMarketing();
+
+            FacesMessage msg = new FacesMessage("Added new row");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Maßnahme darf nicht leer sein!");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
+    }
+
+    public void delete(Marketing m) {
+        marketing.remove(m);
+        saveMarketing();
+
+        FacesMessage msg = new FacesMessage("Deleted row", String.valueOf(m.getId()));
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 }
