@@ -12,7 +12,6 @@ public class Customer {
     private String time;  // Einkaufsuhrzeit
     private String residence;  // Wohnort
     private String income;  // Haushaltsnettoeinkommen
-    private String regular;  // Stammkunde
 
 
     public Customer(String[] params) {
@@ -25,15 +24,6 @@ public class Customer {
         this.time = params[6];
         this.residence = params[7];
         this.income = params[8];
-        this.regular = params[9];
-    }
-
-    public String getRegular() {
-        return regular;
-    }
-
-    public void setRegular(String regular) {
-        this.regular = regular;
     }
 
     public String getIncome() {

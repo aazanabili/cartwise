@@ -69,7 +69,7 @@ public class Analysis {
         SimpleKMeans model = new SimpleKMeans();
         model.setNumClusters(number);
 
-        for (int i = 0; i < 16; i++) customer.deleteAttributeAt(10);
+        for (int i = 0; i < 16; i++) customer.deleteAttributeAt(9);
 
         model.buildClusterer(customer);
 
