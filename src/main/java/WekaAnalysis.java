@@ -1,5 +1,3 @@
-package CartWise;
-
 import weka.core.converters.CSVLoader;
 import weka.core.Instances;
 
