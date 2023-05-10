@@ -17,7 +17,7 @@
     <h:form id="navigation">
         <p:menubar style="background-color: #33a876">
             <p:menuitem>
-                <h:graphicImage name="./LogoKaufDort.jpg" height="50" />
+                <h:graphicImage url="./LogoKaufDort.jpg" height="50" />
             </p:menuitem>
             <p:menuitem value="Kauf Dort" url="#"/>
             <p:menuitem value="Weitere Daten auswerten" url="index.xhtml" styleClass="navbar-right" />
@@ -30,6 +30,16 @@
                 <!-- Spacer -->
             </div>
             <div class="col-8 text-center bg-success text-light rounded-3">
+            <!-- Fehler Panel -->
+                <div class="my-4">
+                    <p:panel id="fehlerPanel" header="Fehler" toggleable="true" collapsed="true">
+                        <ul>
+                            <ui:repeat value="#{analysisBean.getFehler()}" var="fehler">
+                                <li>#{fehler}</li>
+                            </ui:repeat>
+                        </ul>
+                    </p:panel>
+                </div>  
                 <hr class="bg-success text-light"/>
                 <span class="fw-bold">Marketingmaßnahmen</span>
                 <hr class="bg-success text-light"/>
