@@ -33,9 +33,14 @@ public class AnalysisBean implements Serializable {
     private String marketingInput;
     private Marketing selectedRow;
 
+    public List<String> getFehler() {
+        return analysis.getFehler();
+    }
+
     public BarChartModel getBestDayChart() {
         return this.bestDayChart;
     }
+
     public void setBestDayChart(BarChartModel bestDayChart) {
         this.bestDayChart = bestDayChart;
     }
@@ -43,6 +48,7 @@ public class AnalysisBean implements Serializable {
     public int getNumCluster() {
         return numCluster;
     }
+
     public void setNumCluster(int numCluster) {
         this.numCluster = numCluster;
     }
@@ -50,19 +56,34 @@ public class AnalysisBean implements Serializable {
     public List<Customer> getCustomerCluster() {
         return customerCluster;
     }
+
     public void setCustomerCluster(List<Customer> customerCluster) {
         this.customerCluster = customerCluster;
     }
 
-    public List<Marketing> getMarketing() { return marketing; }
-    public void setMarketing(List<Marketing> marketing) { this.marketing = marketing; }
+    public List<Marketing> getMarketing() {
+        return marketing;
+    }
 
-    public String getMarketingInput() { return marketingInput; }
-    public void setMarketingInput(String marketingInput) { this.marketingInput = marketingInput; }
+    public void setMarketing(List<Marketing> marketing) {
+        this.marketing = marketing;
+    }
 
-    public Marketing getSelectedRow() { return selectedRow; }
-    public void setSelectedRow(Marketing selectedRow) { this.selectedRow = selectedRow; }
+    public String getMarketingInput() {
+        return marketingInput;
+    }
 
+    public void setMarketingInput(String marketingInput) {
+        this.marketingInput = marketingInput;
+    }
+
+    public Marketing getSelectedRow() {
+        return selectedRow;
+    }
+
+    public void setSelectedRow(Marketing selectedRow) {
+        this.selectedRow = selectedRow;
+    }
 
     @PostConstruct
     public void init() {
@@ -159,7 +180,8 @@ public class AnalysisBean implements Serializable {
         String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("") + "marketing";
         File saveDir = new File(path);
 
-        if (!saveDir.exists()) saveDir.mkdir();
+        if (!saveDir.exists())
+            saveDir.mkdir();
         List<String> results = new ArrayList<>();
 
         File f = new File(saveDir + File.separator + "marketing.csv");
@@ -177,7 +199,7 @@ public class AnalysisBean implements Serializable {
                 marketing.add(new Marketing(i, str));
                 i++;
             }
-        } catch ( FileNotFoundException e ) {
+        } catch (FileNotFoundException e) {
             // do nothing
         }
     }
@@ -186,7 +208,8 @@ public class AnalysisBean implements Serializable {
         String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("") + "marketing";
         File saveDir = new File(path);
 
-        if (!saveDir.exists()) saveDir.mkdir();
+        if (!saveDir.exists())
+            saveDir.mkdir();
 
         File f = new File(saveDir + File.separator + "marketing.csv");
         f.delete();
