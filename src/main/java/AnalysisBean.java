@@ -33,11 +33,11 @@ public class AnalysisBean implements Serializable {
     private String marketingInput;
     private Marketing selectedRow;
     
-    public String[] getFehler() {
+    public List<String>  getFehler() {
         return analysis.getFehler();
     }
 
-    public BarChartModel getBestDayChart() {
+	public BarChartModel getBestDayChart() {
         return this.bestDayChart;
     }
     public void setBestDayChart(BarChartModel bestDayChart) {
