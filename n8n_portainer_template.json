@@ -1,0 +1,74 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "type": 2,
+      "title": "n8n",
+      "name": "n8n",
+      "description": "n8n is an extendable workflow automation tool.",
+      "logo": "https://n8n.io/favicon.ico",
+      "image": "n8nio/n8n:latest",
+      "categories": [
+        "Automation"
+      ],
+      "platform": "linux",
+      "restart_policy": "unless-stopped",
+      "ports": [
+        "5678:5678/tcp"
+      ],
+      "volumes": [
+        {
+          "container": "/home/node/.n8n",
+          "bind": "/data/n8n"
+        }
+      ],
+      "env": [
+        {
+          "name": "N8N_BASIC_AUTH_ACTIVE",
+          "label": "Enable Basic Auth",
+          "default": "true"
+        },
+        {
+          "name": "N8N_BASIC_AUTH_USER",
+          "label": "Basic Auth Username",
+          "default": "user"
+        },
+        {
+          "name": "N8N_BASIC_AUTH_PASSWORD",
+          "label": "Basic Auth Password",
+          "default": "password"
+        },
+        {
+          "name": "N8N_HOST",
+          "label": "Host (for webhooks)",
+          "default": "localhost"
+        },
+        {
+          "name": "N8N_PORT",
+          "label": "Port",
+          "default": "5678"
+        },
+        {
+          "name": "N8N_PROTOCOL",
+          "label": "Protocol",
+          "select": [
+            {
+              "text": "http",
+              "value": "http",
+              "default": "true"
+            },
+            {
+              "text": "https",
+              "value": "https"
+            }
+          ]
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    }
+  ]
+}
